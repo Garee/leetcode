@@ -18,7 +18,7 @@ import unittest
 
 def two_sum(nums, target):
     """
-    O(n) time, O(1) space
+    O(n) time, O(n) space
 
     :type nums: List[int]
     :type target: int
