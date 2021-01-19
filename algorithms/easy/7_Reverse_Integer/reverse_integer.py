@@ -1,47 +1,47 @@
 #! /usr/bin/env python
 """
-Given a 32-bit signed integer, reverse digits of an integer.
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
 
 Example 1:
 
-    Input: 123
+    Input: x = 123
     Output: 321
 
 Example 2:
 
-    Input: -123
+    Input: x = -123
     Output: -321
 
 Example 3:
 
-    Input: 120
+    Input: x = 120
     Output: 21
 
-Note:
-Assume we are dealing with an environment which could only store integers
-within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose
-of this problem, assume that your function returns 0 when the reversed
-integer overflows.
+Example 4:
+
+    Input: x = 0
+    Output: 0
+
+Constraints:
+
+    -231 <= x <= 231 - 1
 """
 import unittest
 
 
-def reverse(x):
+def reverse(x: int) -> int:
     """
-    O(n) time, O(n) space
-
-    :type x: int
-    :rtype: int
+    O(n) time and O(n) space as we reverse the integer string.
     """
     x_str = str(x)
-    x_rev_str = x_str[::-1]
-    if x_rev_str[-1] == "-":
-        x = -int(x_rev_str[:-1])
-    else:
-        x = int(x_rev_str)
-    if x < -2 ** 31 or x > 2 ** 31 - 1:
+    is_neg = x_str[0] == "-"
+    rev_s = x_str[::-1]
+    rev = -int(rev_s[:-1]) if is_neg else int(rev_s)
+    if rev < -(2 ** 31) or rev > (2 ** 31 - 1):
         return 0
-    return x
+    return rev
 
 
 class TestSolution(unittest.TestCase):
