@@ -33,20 +33,19 @@ the range from 1 to 3999.
 import unittest
 
 
-def roman_to_int(s):
+def roman_to_int(s: str) -> int:
     """
-    :type x: str
-    :rtype: int
+    O(n) time and O(1) space
     """
-    n = 0
-    vals = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-    for i in range(len(s)):
-        val = vals[s[i]]
+    symbols = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    n = symbols[s[0]]
+    for i in range(1, len(s)):
+        symbol = s[i]
+        val = symbols[symbol]
         n += val
-        if i > 0:
-            prev_val = vals[s[i - 1]]
-            if prev_val < val:
-                n -= prev_val * 2
+        prev = symbols[s[i - 1]]
+        if prev < val:
+            n -= prev * 2
     return n
 
 
