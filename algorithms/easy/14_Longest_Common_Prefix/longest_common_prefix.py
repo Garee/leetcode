@@ -21,22 +21,20 @@ Note:
 All given inputs are in lowercase letters a-z.
 """
 import unittest
+from typing import List
 
 
-def longest_common_prefix(strs):
-    """
-    :type strs: List[str]
-    :rtype: str
-    """
-    if not strs:
+def longest_common_prefix(strs: List[str]) -> str:
+    """"""
+    if len(strs) == 0:
         return ""
-    s = strs[0]
     if len(strs) == 1:
-        return s
+        return strs[0]
+    s = strs[0]
     for i, c in enumerate(s):
         for j in range(1, len(strs)):
-            t = strs[j]
-            if i >= len(t) or c != t[i]:
+            other = strs[j]
+            if i >= len(other) or c != other[i]:
                 return s[:i]
     return s
 
@@ -69,6 +67,11 @@ class TestSolution(unittest.TestCase):
         strs = ["a", "a"]
         ans = longest_common_prefix(strs)
         self.assertEqual(ans, "a")
+
+    def test_same_(self):
+        strs = ["flower", "flower", "flower", "flower"]
+        ans = longest_common_prefix(strs)
+        self.assertEqual(ans, "flower")
 
 
 if __name__ == "__main__":
