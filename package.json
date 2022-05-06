@@ -1,0 +1,37 @@
+{
+  "name": "leetcode",
+  "private": true,
+  "version": "0.0.1",
+  "description": "My personal solutions to the Leetcode problems.",
+  "scripts": {
+    "format:py": "black python",
+    "format:js": "prettier --write javascript/*.js",
+    "format": "npm run format:py && npm run format:js",
+    "lint:py": "pylint python",
+    "lint:js": "eslint javascript/*.js",
+    "lint": "npm run lint:py && npm run lint:js",
+    "test:js": "jest",
+    "test:py": "pytest python/*.py",
+    "test": "npm run test:py && npm run test:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Garee/leetcode.git"
+  },
+  "keywords": [
+    "leetcode",
+    "puzzle",
+    "solutions"
+  ],
+  "author": "Gary Blackwood <gary@garyblackwood.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Garee/leetcode/issues"
+  },
+  "homepage": "https://github.com/Garee/leetcode#readme",
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "jest": "^28.0.3",
+    "prettier": "^2.6.2"
+  }
+}

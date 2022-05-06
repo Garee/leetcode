@@ -1,0 +1,14 @@
+# IDEs
+.vscode/
+
+# Python
+__pycache__/
+.pytest_cache/
+venv/
+
+# JavaScript
+node_modules/
+
+# Misc
+*.log
+*.debug
