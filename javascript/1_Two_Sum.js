@@ -25,15 +25,14 @@
  * If the matching paired number is already in the hash map, return its index
  * and the current index.
  *
- * @param {number[]} nums
- * @param {number} target
- * @return  {number[]}
+ * @param {number[]} nums the array of numbers.
+ * @param {number} target the sum targets.
+ * @return  {number[]} the indices of the two numbers that sum to target.
  */
 var twoSum = function (nums, target) {
     const met = {};
 
-    for (let i = 0; i < nums.length; i++) {
-        const n = nums[i];
+    for (const [i, n] of nums.entries()) {
         const need = target - n;
         if (need in met) {
             return [met[need], i];
