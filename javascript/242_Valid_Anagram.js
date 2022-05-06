@@ -1,4 +1,6 @@
 /*
+ * 242. Valid Anagram (Easy)
+ *
  * Given two strings s and t, return true if t is an anagram of s, and false
  * otherwise.
  *
@@ -28,36 +30,36 @@
  * @return {boolean} true if s is an anagram of t.
  */
 var isAnagram = function (s, t) {
-    if (s.length !== t.length) {
-        return false;
-    }
+  if (s.length !== t.length) {
+    return false;
+  }
 
-    const sCounts = {};
-    const tCounts = {};
-    for (let i = 0; i < s.length; i++) {
-        sCounts[s[i]] = s[i] in sCounts ? sCounts[s[i]] + 1 : 0;
-        tCounts[t[i]] = t[i] in tCounts ? tCounts[t[i]] + 1 : 0;
-    }
+  const sCounts = {};
+  const tCounts = {};
+  for (let i = 0; i < s.length; i++) {
+    sCounts[s[i]] = s[i] in sCounts ? sCounts[s[i]] + 1 : 0;
+    tCounts[t[i]] = t[i] in tCounts ? tCounts[t[i]] + 1 : 0;
+  }
 
-    for (const [c, n] of Object.entries(sCounts)) {
-        if (n !== tCounts[c]) {
-            return false;
-        }
+  for (const [c, n] of Object.entries(sCounts)) {
+    if (n !== tCounts[c]) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 };
 
 test("example 1", () => {
-    const s = "anagram";
-    const t = "nagaram";
-    const ans = isAnagram(s, t);
-    expect(ans).toEqual(true);
+  const s = "anagram";
+  const t = "nagaram";
+  const ans = isAnagram(s, t);
+  expect(ans).toEqual(true);
 });
 
 test("example 2", () => {
-    const s = "rat";
-    const t = "car";
-    const ans = isAnagram(s, t);
-    expect(ans).toEqual(false);
+  const s = "rat";
+  const t = "car";
+  const ans = isAnagram(s, t);
+  expect(ans).toEqual(false);
 });
