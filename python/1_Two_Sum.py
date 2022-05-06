@@ -62,7 +62,3 @@ class TestSolution(unittest.TestCase):
         target = 6
         ans = self.solution.twoSum(nums, target)
         assert ans == [0, 1]
-
-
-if __name__ == "__main__":
-    unittest.main()
