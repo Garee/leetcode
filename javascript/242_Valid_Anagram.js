@@ -33,15 +33,10 @@ var isAnagram = function (s, t) {
     }
 
     const sCounts = {};
-    for (const c of s) {
-        const count = sCounts[c] ?? 0;
-        sCounts[c] = count + 1;
-    }
-
     const tCounts = {};
-    for (const c of t) {
-        const count = tCounts[c] ?? 0;
-        tCounts[c] = count + 1;
+    for (let i = 0; i < s.length; i++) {
+        sCounts[s[i]] = s[i] in sCounts ? sCounts[s[i]] + 1 : 0;
+        tCounts[t[i]] = t[i] in tCounts ? tCounts[t[i]] + 1 : 0;
     }
 
     for (const [c, n] of Object.entries(sCounts)) {

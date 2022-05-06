@@ -12,7 +12,6 @@ Constraints:
   s and t consist of lowercase English letters.
 """
 import unittest
-from collections import defaultdict
 
 
 class Solution:
@@ -32,14 +31,14 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-        s_counts = defaultdict(int)
-        for c in s:
-            s_counts[c] += 1
-        t_counts = defaultdict(int)
-        for c in t:
-            t_counts[c] += 1
+        s_counts = {}
+        t_counts = {}
+        for i, c in enumerate(s):
+            s_counts[c] = s_counts.get(c, 0) + 1
+            t_counts[t[i]] = t_counts.get(t[i], 0) + 1
+        print(s_counts, t_counts)
         for c, n in s_counts.items():
-            if n != t_counts[c]:
+            if n != t_counts.get(c, 0):
                 return False
         return True
 
