@@ -24,7 +24,7 @@
  * @param {number} k the max number of repeats.
  * @returns the length of the longest substring containing all repeating letters.
  */
-var longestRepeatingCharacterReplacement = function (s, k) {
+var characterReplacement = function (s, k) {
     let length = 0;
 
     const counts = {};
@@ -51,13 +51,13 @@ var longestRepeatingCharacterReplacement = function (s, k) {
 test("example 1", () => {
     const s = "ABAB";
     const k = 2;
-    const ans = longestRepeatingCharacterReplacement(s, k);
+    const ans = characterReplacement(s, k);
     expect(ans).toEqual(4);
 });
 
 test("example 2", () => {
     const s = "AABABBA";
     const k = 1;
-    const ans = longestRepeatingCharacterReplacement(s, k);
+    const ans = characterReplacement(s, k);
     expect(ans).toEqual(4);
 });
