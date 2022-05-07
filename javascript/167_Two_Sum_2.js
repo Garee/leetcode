@@ -33,9 +33,9 @@
  * sum of them is greater than or less than the target. Stop if they
  * sum to the target, or they meet at the same index.
  *
- * @param {number[]} numbers
- * @param {number} target
- * @return {number[]}
+ * @param {number[]} numbers the numbers to search.
+ * @param {number} target the target to sum to.
+ * @return {number[]} the indices of the two numbers that sum to the target.
  */
 var twoSum = function (numbers, target) {
     let l = 0;
