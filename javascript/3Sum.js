@@ -63,7 +63,7 @@ test("example 1", () => {
     const ans = threeSum(nums);
     expect(ans).toEqual([
         [-1, -1, 2],
-        [-1, 0, 1]
+        [-1, 0, 1],
     ]);
 });
 

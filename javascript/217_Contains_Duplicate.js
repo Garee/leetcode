@@ -23,27 +23,27 @@
  * @return {boolean} true if there is a duplicate number; otherwise false.
  */
 var containsDuplicate = function (nums) {
-  const s = new Set();
+    const s = new Set();
 
-  for (const n of nums) {
-    if (s.has(n)) {
-      return true;
+    for (const n of nums) {
+        if (s.has(n)) {
+            return true;
+        }
+
+        s.add(n);
     }
 
-    s.add(n);
-  }
-
-  return false;
+    return false;
 };
 
 test("example 1", () => {
-  const nums = [1, 2, 3, 1];
-  const ans = containsDuplicate(nums);
-  expect(ans).toBe(true);
+    const nums = [1, 2, 3, 1];
+    const ans = containsDuplicate(nums);
+    expect(ans).toBe(true);
 });
 
 test("example 2", () => {
-  const nums = [1, 2, 3, 4];
-  const ans = containsDuplicate(nums);
-  expect(ans).toBe(false);
+    const nums = [1, 2, 3, 4];
+    const ans = containsDuplicate(nums);
+    expect(ans).toBe(false);
 });

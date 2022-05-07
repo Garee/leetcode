@@ -28,43 +28,43 @@
  * @return {string[][]} an array of anagram groups.
  */
 var groupAnagrams = function (strs) {
-  const strCounts = {};
-  for (const str of strs) {
-    const counts = new Array(26).fill(0);
-    for (let i = 0; i < str.length; i++) {
-      const code = str.charCodeAt(i) - "a".charCodeAt(0);
-      counts[code]++;
+    const strCounts = {};
+    for (const str of strs) {
+        const counts = new Array(26).fill(0);
+        for (let i = 0; i < str.length; i++) {
+            const code = str.charCodeAt(i) - "a".charCodeAt(0);
+            counts[code]++;
+        }
+        strCounts[str] = counts;
     }
-    strCounts[str] = counts;
-  }
 
-  const groups = {};
-  for (const [str, counts] of Object.entries(strCounts)) {
-    const key = JSON.stringify(counts);
-    if (key in groups) {
-      groups[key].push(str);
-    } else {
-      groups[key] = [str];
+    const groups = {};
+    for (const [str, counts] of Object.entries(strCounts)) {
+        const key = JSON.stringify(counts);
+        if (key in groups) {
+            groups[key].push(str);
+        } else {
+            groups[key] = [str];
+        }
     }
-  }
 
-  return Object.values(groups);
+    return Object.values(groups);
 };
 
 test("example 1", () => {
-  const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
-  const ans = groupAnagrams(strs);
-  expect(ans).toEqual([["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]);
+    const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+    const ans = groupAnagrams(strs);
+    expect(ans).toEqual([["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]);
 });
 
 test("example 2", () => {
-  const strs = [""];
-  const ans = groupAnagrams(strs);
-  expect(ans).toEqual([[""]]);
+    const strs = [""];
+    const ans = groupAnagrams(strs);
+    expect(ans).toEqual([[""]]);
 });
 
 test("example 3", () => {
-  const strs = ["a"];
-  const ans = groupAnagrams(strs);
-  expect(ans).toEqual([["a"]]);
+    const strs = ["a"];
+    const ans = groupAnagrams(strs);
+    expect(ans).toEqual([["a"]]);
 });

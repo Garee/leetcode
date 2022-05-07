@@ -17,32 +17,36 @@
  */
 
 /**
+ * Patterns: Sliding Window
+ * Time: O(n) where n is len(prices)
+ * Space: O(1)
+ *
  * @param {number[]} prices the stock prices.
  * @return {number} the maximum profit.
  */
 var maxProfit = function (prices) {
-  let profit = 0;
+    let profit = 0;
 
-  let l = 0;
-  for (let r = 1; r < prices.length; r++) {
-    if (prices[r] < prices[l]) {
-      l = r;
+    let l = 0;
+    for (let r = 1; r < prices.length; r++) {
+        if (prices[r] < prices[l]) {
+            l = r;
+        }
+
+        profit = Math.max(profit, prices[r] - prices[l]);
     }
 
-    profit = Math.max(profit, prices[r] - prices[l]);
-  }
-
-  return profit;
+    return profit;
 };
 
 test("example 1", () => {
-  const prices = [7, 1, 5, 3, 6, 4];
-  const ans = maxProfit(prices);
-  expect(ans).toEqual(5);
+    const prices = [7, 1, 5, 3, 6, 4];
+    const ans = maxProfit(prices);
+    expect(ans).toEqual(5);
 });
 
 test("example 2", () => {
-  const prices = [7, 6, 4, 3, 1];
-  const ans = maxProfit(prices);
-  expect(ans).toEqual(0);
+    const prices = [7, 6, 4, 3, 1];
+    const ans = maxProfit(prices);
+    expect(ans).toEqual(0);
 });

@@ -20,33 +20,33 @@
  * @return {number} the amount of water trapped.
  */
 var trap = function (height) {
-  let water = 0;
+    let water = 0;
 
-  let l = 0;
-  let r = height.length - 1;
-  let lMax = height[l];
-  let rMax = height[r];
-  while (l < r) {
-    if (lMax < rMax) {
-      lMax = Math.max(lMax, height[++l]);
-      water += lMax - height[l];
-    } else {
-      rMax = Math.max(rMax, height[--r]);
-      water += rMax - height[r];
+    let l = 0;
+    let r = height.length - 1;
+    let lMax = height[l];
+    let rMax = height[r];
+    while (l < r) {
+        if (lMax < rMax) {
+            lMax = Math.max(lMax, height[++l]);
+            water += lMax - height[l];
+        } else {
+            rMax = Math.max(rMax, height[--r]);
+            water += rMax - height[r];
+        }
     }
-  }
 
-  return water;
+    return water;
 };
 
 test("example 1", () => {
-  const height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
-  const ans = trap(height);
-  expect(ans).toEqual(6);
+    const height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
+    const ans = trap(height);
+    expect(ans).toEqual(6);
 });
 
 test("example 2", () => {
-  const height = [4, 2, 0, 3, 2, 5];
-  const ans = trap(height);
-  expect(ans).toEqual(9);
+    const height = [4, 2, 0, 3, 2, 5];
+    const ans = trap(height);
+    expect(ans).toEqual(9);
 });

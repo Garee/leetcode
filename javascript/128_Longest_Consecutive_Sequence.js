@@ -21,7 +21,6 @@
  * the start of a sequence. Increment the length while the sequence
  * exists in the set, and track the longest to return.
  *
- *
  * @param {number[]} nums
  * @return {number}
  */
