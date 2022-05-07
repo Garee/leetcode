@@ -11,6 +11,7 @@
     "lint:js": "eslint javascript/*.js",
     "lint": "npm run lint:py && npm run lint:js",
     "test:js": "jest",
+    "test:js:watch": "jest --watch",
     "test:py": "pytest python/*.py",
     "test": "npm run test:py && npm run test:js"
   },
