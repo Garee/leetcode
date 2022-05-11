@@ -32,4 +32,9 @@ function ListNode(val, next) {
     this.next = next === undefined ? null : next;
 }
 
-mergeTwoLists(null, null);
+test("example 1", () => {
+    const list1 = ListNode();
+    const list2 = ListNode();
+    const ans = mergeTwoLists(list1, list2);
+    expect(ans).toBeDefined();
+});
