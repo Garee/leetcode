@@ -34,3 +34,5 @@ var reverseList = function (head) {
 
     return prev;
 };
+
+reverseList(null);
