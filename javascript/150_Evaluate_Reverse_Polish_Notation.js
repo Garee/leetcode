@@ -50,7 +50,6 @@ var evalRPN = function (tokens) {
             default:
                 stack.push(parseInt(token));
         }
-        console.log(token, stack);
     }
     return stack[0];
 };
